@@ -70,7 +70,7 @@ public class CoreDataDefaultStorage: Storage {
             throw error
         }
     }
-
+    
     public func removeStore() throws {
         try NSFileManager.defaultManager().removeItemAtURL(store.path())
     }
@@ -78,11 +78,16 @@ public class CoreDataDefaultStorage: Storage {
     
     // MARK: - Init
     
-    public init(store: CoreData.Store, model: CoreData.ObjectModel, migrate: Bool = true) throws {
+    public convenience init(store: CoreData.Store, model: CoreData.ObjectModel, migrate: Bool = true) throws {
+        let options = migrate ? CoreData.Options.Migration : CoreData.Options.Default
+        try self.init(store: store, model: model, options: options)
+    }
+    
+    public init(store: CoreData.Store, model: CoreData.ObjectModel, options: CoreData.Options) throws {
         self.store   = store
         self.objectModel = model.model()!
         self.persistentStoreCoordinator = NSPersistentStoreCoordinator(managedObjectModel: objectModel)
-        self.persistentStore = try cdInitializeStore(store, storeCoordinator: persistentStoreCoordinator, migrate: migrate)
+        self.persistentStore = try cdInitializeStore(store, storeCoordinator: persistentStoreCoordinator, options: options)
         self.rootSavingContext = cdContext(withParent: .Coordinator(self.persistentStoreCoordinator), concurrencyType: .PrivateQueueConcurrencyType, inMemory: false)
         self.mainContext = cdContext(withParent: .Context(self.rootSavingContext), concurrencyType: .MainQueueConcurrencyType, inMemory: false)
     }
@@ -112,9 +117,8 @@ internal func cdContext(withParent parent: CoreData.ContextParent?, concurrencyT
     return context!
 }
 
-internal func cdInitializeStore(store: CoreData.Store, storeCoordinator: NSPersistentStoreCoordinator, migrate: Bool) throws -> NSPersistentStore {
+internal func cdInitializeStore(store: CoreData.Store, storeCoordinator: NSPersistentStoreCoordinator, options: CoreData.Options) throws -> NSPersistentStore {
     try cdCreateStoreParentPathIfNeeded(store)
-    let options = migrate ? CoreData.Options.Migration : CoreData.Options.Default
     return try cdAddPersistentStore(store, storeCoordinator: storeCoordinator, options: options.dict())
 }
 

@@ -259,6 +259,10 @@
 		3DE3FD821BEC166000009071 /* SugarRecordCoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DB2B8701BDEE67C005B7EF2 /* SugarRecordCoreData.framework */; };
 		3DE3FD961BF12B8C00009071 /* DataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3DE3FD941BF12B8C00009071 /* DataModel.xcdatamodeld */; };
 		3DE84A6A1C271B6000F7ADF3 /* SugarRecordRealm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2319B8AE1C2402490050ABE8 /* SugarRecordRealm.framework */; };
+		799814B01CBA627400D9FDE8 /* JournalMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 799814AF1CBA627400D9FDE8 /* JournalMode.swift */; };
+		799814B11CBA628200D9FDE8 /* JournalMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 799814AF1CBA627400D9FDE8 /* JournalMode.swift */; };
+		799814B21CBA628200D9FDE8 /* JournalMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 799814AF1CBA627400D9FDE8 /* JournalMode.swift */; };
+		799814B31CBA628300D9FDE8 /* JournalMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 799814AF1CBA627400D9FDE8 /* JournalMode.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -419,6 +423,7 @@
 		3DE3FD951BF12B8C00009071 /* DataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DataModel.xcdatamodel; sourceTree = "<group>"; };
 		3DE3FD9E1BF15BD200009071 /* RealmDefaultStorage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealmDefaultStorage.swift; sourceTree = "<group>"; };
 		3DE3FDA31BF15C5500009071 /* Realm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Realm.swift; sourceTree = "<group>"; };
+		799814AF1CBA627400D9FDE8 /* JournalMode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JournalMode.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -717,6 +722,7 @@
 				2353E6701BED4DF50081E6E7 /* ObjectModel.swift */,
 				2353E6751BED4E420081E6E7 /* Store.swift */,
 				2353E67A1BED52150081E6E7 /* Options.swift */,
+				799814AF1CBA627400D9FDE8 /* JournalMode.swift */,
 				239C8E041BF48B680025DB9A /* ContextParent.swift */,
 				2388637E1C5C285F0048B691 /* iCloudConfig.swift */,
 			);
@@ -1780,6 +1786,7 @@
 				2353E64D1BED4AC00081E6E7 /* Error.swift in Sources */,
 				2353E6551BED4AC00081E6E7 /* Context.swift in Sources */,
 				239C8E051BF48B680025DB9A /* ContextParent.swift in Sources */,
+				799814B01CBA627400D9FDE8 /* JournalMode.swift in Sources */,
 				2353E6511BED4AC00081E6E7 /* RequestExtension.swift in Sources */,
 				2305F8FF1BF1EA8D00F9D379 /* Entity.swift in Sources */,
 				2353E6491BED4AC00081E6E7 /* Storage.swift in Sources */,
@@ -1811,6 +1818,7 @@
 				2353E6521BED4AC00081E6E7 /* RequestExtension.swift in Sources */,
 				231C61F21C174BE000CD6532 /* NSManagedObjectMemoryContext.swift in Sources */,
 				23F3F36B1C1DFA6D009A5CC1 /* ReactiveError.swift in Sources */,
+				799814B11CBA628200D9FDE8 /* JournalMode.swift in Sources */,
 				23AC16271BF370BA00FAF97A /* Entity.swift in Sources */,
 				2353E64A1BED4AC00081E6E7 /* Storage.swift in Sources */,
 				23A9167E1C173FCF005E57D8 /* Requestable.swift in Sources */,
@@ -1833,6 +1841,7 @@
 				237A93CB1C626ABF006BC2F1 /* CoreDataiCloudStorage.swift in Sources */,
 				2319B86D1C2401F80050ABE8 /* NSSortDescriptorConvertible.swift in Sources */,
 				237A93CD1C626AC8006BC2F1 /* iCloudConfig.swift in Sources */,
+				799814B21CBA628200D9FDE8 /* JournalMode.swift in Sources */,
 				2319B86E1C2401F80050ABE8 /* Context.swift in Sources */,
 				2319B86F1C2401F90050ABE8 /* Entity.swift in Sources */,
 				2319B8701C2401F90050ABE8 /* Requestable.swift in Sources */,
@@ -1865,6 +1874,7 @@
 				2319B8C21C2402960050ABE8 /* CoreDataErrors.swift in Sources */,
 				237A93CE1C626AC9006BC2F1 /* iCloudConfig.swift in Sources */,
 				2319B8C31C2402960050ABE8 /* NSManagedObject.swift in Sources */,
+				799814B31CBA628300D9FDE8 /* JournalMode.swift in Sources */,
 				2319B8C41C2402960050ABE8 /* NSManagedObjectContext.swift in Sources */,
 				2319B8C51C2402960050ABE8 /* NSManagedObjectMemoryContext.swift in Sources */,
 				2319B8C61C2402960050ABE8 /* CoreDataDefaultStorage.swift in Sources */,
