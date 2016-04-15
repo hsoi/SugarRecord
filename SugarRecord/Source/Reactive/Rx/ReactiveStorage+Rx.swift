@@ -95,5 +95,24 @@ public extension Storage {
             return NopDisposable.instance
         }
     }
-    
+
+    func rx_fetch<T>(request: Request<T>, postFetchSort: [NSSortDescriptor]) -> Observable<[T]> {
+        return Observable.create { (observer) -> RxSwift.Disposable in
+            do {
+                try observer.onNext(self.fetch(request, postFetchSort: postFetchSort))
+                observer.onCompleted()
+            }
+            catch  {
+                if let error = error as? Error {
+                    observer.onError(error)
+                }
+                else {
+                    observer.onNext([])
+                    observer.onCompleted()
+                }
+            }
+            return NopDisposable.instance
+        }
+    }
+
 }

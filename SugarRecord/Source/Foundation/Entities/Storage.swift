@@ -14,6 +14,7 @@ public protocol Storage: CustomStringConvertible, Requestable {
     func removeStore() throws
     func operation(operation: (context: Context, save: () -> Void) throws -> Void) throws
     func fetch<T: Entity>(request: Request<T>) throws -> [T]
+    func fetch<T: Entity>(request: Request<T>, postFetchSort: [NSSortDescriptor]) throws -> [T]
     
 }
 
@@ -24,5 +25,9 @@ public extension Storage {
     func fetch<T: Entity>(request: Request<T>) throws -> [T] {
         return try self.mainContext.fetch(request)
     }
-    
+
+    func fetch<T: Entity>(request: Request<T>, postFetchSort: [NSSortDescriptor]) throws -> [T] {
+        return try self.mainContext.fetch(request, postFetchSort: postFetchSort)
+    }
+
 }

@@ -3,6 +3,7 @@ import Foundation
 public protocol Context: Requestable {
     
     func fetch<T: Entity>(request: Request<T>) throws -> [T]
+    func fetch<T: Entity>(request: Request<T>, postFetchSort: [NSSortDescriptor]) throws -> [T]
     func insert<T: Entity>(entity: T) throws
     func new<T: Entity>() throws -> T
     func create<T: Entity>() throws -> T

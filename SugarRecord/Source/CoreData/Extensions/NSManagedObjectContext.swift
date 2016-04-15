@@ -15,7 +15,18 @@ extension NSManagedObjectContext: Context {
         let typedResults = results.map {$0 as! T} 
         return typedResults
     }
-    
+
+    public func fetch<T: Entity>(request: Request<T>, postFetchSort: [NSSortDescriptor]) throws -> [T] {
+        guard let entity = T.self as? NSManagedObject.Type else { throw Error.InvalidType }
+        let fetchRequest: NSFetchRequest =  NSFetchRequest(entityName: entity.entityName)
+        fetchRequest.predicate = request.predicate
+        fetchRequest.sortDescriptors = request.sortDescriptor.map {[$0]}
+        let results = try self.executeFetchRequest(fetchRequest)
+        let sortedResults = (results as NSArray).sortedArrayUsingDescriptors(postFetchSort)
+        let typedResults = sortedResults.map {$0 as! T}
+        return typedResults
+    }
+
     public func insert<T: Entity>(entity: T) throws {}
     
     public func new<T: Entity>() throws -> T {
